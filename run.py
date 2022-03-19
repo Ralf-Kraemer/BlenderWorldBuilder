@@ -21,4 +21,4 @@ bpy.ops.wm.open_mainfile(filepath="./input/template.blend")
 target_directory = "./output/"
 target_path = target_directory + world_file_name
 print(target_path)
-bpy.ops.export_scene.gltf(target_path)
+bpy.ops.export_scene.gltf(filepath=target_path, export_format='GLB')
