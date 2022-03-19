@@ -1,7 +1,13 @@
 import bpy
-import json
+import quickHandler
+
+# Gather input
+print("What should your world be called?")
+world_name = input()
+world_file_name = "".join([c for c in world_name if c.isalpha() or c.isdigit()]).rstrip()
 
 # Set up work environment
+bpy.ops.wm.open_mainfile(filepath="./input/template.blend")
 
 # Generate terrain
 
@@ -12,3 +18,7 @@ import json
 # Beautify
 
 # Export to GLB
+target_directory = "./output/"
+target_path = target_directory + world_file_name
+print(target_path)
+bpy.ops.export_scene.gltf(target_path)
