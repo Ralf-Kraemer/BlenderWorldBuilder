@@ -1,5 +1,4 @@
 import bpy
-import quickHandler
 
 # Gather input
 print("What should your world be called?")
