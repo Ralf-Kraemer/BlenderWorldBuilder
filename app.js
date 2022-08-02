@@ -3,7 +3,6 @@ const { exec } = require('child_process');
 const fs = require('fs');
 const app = express();
 const port = 443;
-const blender = '/opt/blender'
 
 app.get('/', (req, res) => {
     
@@ -15,7 +14,7 @@ app.get('/', (req, res) => {
     res.sendFile(path);
   } else
   {
-    exec(blender + " -b -P run.py ./input/template.blend " + id, {},
+    exec("blender -b -P run.py ./input/template.blend " + id, {},
         function() {
             res.sendFile(path);
         }
