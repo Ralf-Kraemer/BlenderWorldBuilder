@@ -1,5 +1,6 @@
 import sys
 import bpy
+import math
 
 # Gather input
 world_input = sys.argv[5]
@@ -14,9 +15,9 @@ bpy.ops.object.select_all(action='DESELECT')
 # Input seed
 print("Seeding...")
 node_group = bpy.data.node_groups['Seeder']
-node_group.nodes["SeedOutput"].inputs[0].default_value = int(world_name[0]+world_name[1], 16)
-node_group.nodes["SeedOutput"].inputs[1].default_value = int(world_name[2]+world_name[3], 16)
-node_group.nodes["SeedOutput"].inputs[2].default_value = int(world_name[4]+world_name[5], 16)
+node_group.nodes["SeedOutput"].inputs[0].default_value = int(world_name[0], 16)
+node_group.nodes["SeedOutput"].inputs[1].default_value = int(world_name[1], 16)
+node_group.nodes["SeedOutput"].inputs[2].default_value = int(math.floor(int(world_name[0], 16) / int(world_name[1], 16)))
 
 # Generate terrain
 def bakeTerrain():
